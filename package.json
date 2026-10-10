@@ -1,0 +1,12 @@
+{
+  "name": "care-sathi-root",
+  "version": "1.0.0",
+  "description": "Care Sathi - AI-Powered Rural Health Triage & Care Coordination Platform",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start": "cd backend && npm start"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
