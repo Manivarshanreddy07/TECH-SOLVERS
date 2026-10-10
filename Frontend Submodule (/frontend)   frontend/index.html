@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Sathi | AI Rural Health Triage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-banner">
+            <span class="badge abdm"><i class="fa-solid fa-circle-check"></i> Ayushman Bharat ABDM Ready</span>
+            <span class="badge ai-triage"><i class="fa-solid fa-wand-magic-sparkles"></i> 24x7 Vernacular AI Triage</span>
+        </div>
+        <div class="brand-container">
+            <div class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div>
+                <h1>CareSathi <span class="hindi-title">केयर साथी</span></h1>
+                <p>Rural AI Health Triage & Telemedicine Gateway</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Step 1: Registration Panel -->
+        <section id="step-registration" class="card active">
+            <h3><i class="fa-solid fa-user-shield"></i> SELECT PORTAL ACCESS</h3>
+            <div class="portal-grid">
+                <button class="portal-btn active"><i class="fa-solid fa-user"></i> Patient<br><span>नागरिक</span></button>
+                <button class="portal-btn"><i class="fa-solid fa-user-doctor"></i> Doctor<br><span>चिकित्सक</span></button>
+                <button class="portal-btn"><i class="fa-solid fa-user-gear"></i> Admin<br><span>प्रशासक</span></button>
+                <button class="portal-btn"><i class="fa-solid fa-users-medical"></i> CHW<br><span>आशा</span></button>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fa-solid fa-language"></i> Language / भाषा (Vernacular Audio Triage)</label>
+                <select id="language-select">
+                    <option value="hindi">हिंदी (Hindi)</option>
+                    <option value="english">English</option>
+                    <option value="telugu">తెలుగు (Telugu)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number / मोबाइल नंबर *</label>
+                <input type="tel" id="mobile-input" value="9000000000" placeholder="Enter 10 digit number">
+            </div>
+
+            <div class="form-group">
+                <label>OTP / सत्यापन कोड *</label>
+                <input type="text" id="otp-input" value="123456" placeholder="Enter OTP">
+                <small class="success-text"><i class="fa-solid fa-circle-check"></i> Test OTP pre-filled: 123456</small>
+            </div>
+
+            <button class="btn btn-primary" onclick="navigateTo('step-consent')">Login to Patient Health Portal <i class="fa-solid fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Step 2: Consent & Language Configuration -->
+        <section id="step-consent" class="card">
+            <div class="secure-badge"><i class="fa-solid fa-shield-halved"></i> ZERO-CREDENTIAL SHARING • ABHA ALIGNED</div>
+            <h3>Trusted Family & Assisted Access / पारिवारिक सहायता</h3>
+            <p class="description">Authorize verified family members or caregivers to securely access limited health records when you are unable to call yourself.</p>
+            <button class="btn btn-secondary mb-20"><i class="fa-solid fa-user-lock"></i> Manage Trusted Caregivers</button>
+
+            <h3>Language & Telehealth Consent / सहमति</h3>
+            <div class="lang-grid">
+                <button class="lang-btn active">हिंदी (Hindi)</option>
+                <button class="lang-btn">English</option>
+                <button class="lang-btn">తెలుగు (Telugu)</option>
+                <button class="lang-btn">தமிழ் (Tamil)</option>
+                <button class="lang-btn">বাংলা (Bengali)</option>
+                <button class="lang-btn">मराठी (Marathi)</option>
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="consent-check" checked>
+                <label for="consent-check">Language & Telehealth Consent: I give consent to CareSathi to record symptoms using voice assistance for clinical triage and coordination with local ASHA workers and PHC doctors.</label>
+            </div>
+
+            <button class="btn btn-primary" onclick="navigateTo('step-history')">Proceed to Health History <i class="fa-solid fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Step 3: Health History Data Extraction -->
+        <section id="step-history" class="card">
+            <h3><i class="fa-solid fa-id-card"></i> Patient Identification & Chronic History</h3>
+            
+            <div class="form-group">
+                <label>PATIENT NAME / नाम</label>
+                <input type="text" value="Jashwanth" readonly>
+            </div>
+            <div class="form-group">
+                <label>AYUSHMAN BHARAT ABHA ID</label>
+                <input type="text" value="91-4523-8891-2341" readonly>
+            </div>
+            <div class="form-group">
+                <label>AGE & GENDER</label>
+                <div class="row-inputs">
+                    <input type="text" value="48" readonly>
+                    <input type="text" value="Male" readonly>
+                </div>
+            </div>
+
+            <div class="history-block">
+                <label><i class="fa-solid fa-clipboard-list"></i> KNOWN PAST MEDICAL HISTORY (पूर्व बीमारी इतिहास)</label>
+                <p class="hint">The AI Correlation Engine cross-references these conditions with current symptoms to detect hidden complications.</p>
+                <div class="tag-grid">
+                    <span class="tag active">Hypertension (High BP)</span>
+                    <span class="tag">Type 2 Diabetes</span>
+                    <span class="tag">Asthma</span>
+                    <span class="tag">Past Cardiac Episode</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="navigateTo('step-triage')">Proceed to Voice Symptom Questioning <i class="fa-solid fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Step 4: AI Triage Screen -->
+        <section id="step-triage" class="card">
+            <div class="triage-header">
+                <span class="badge-count">Query 1 of 8</span>
+                <button class="btn-voice-stop"><i class="fa-solid fa-volume-xmark"></i> Stop Voice</button>
+            </div>
+
+            <div class="triage-core">
+                <div class="pulse-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <span class="critical-badge">CRITICAL SYMPTOM</span>
+                <h2>Are you experiencing severe chest pain, pressure, or tightness?</h2>
+                <p class="hindi-translation">क्या आपको छाती में तेज़ दर्द, भारीपन या जकड़न महसूस हो रही है?</p>
+            </div>
+
+            <div class="action-buttons-row">
+                <button class="btn btn-danger" onclick="evaluateSymptom('YES')"><i class="fa-solid fa-check"></i> YES / हाँ</button>
+                <button class="btn btn-success" onclick="evaluateSymptom('NO')"><i class="fa-solid fa-xmark"></i> NO / नहीं</button>
+            </div>
+
+            <div class="speech-assist-box">
+                <h4>DIRECT MIC SPEECH ASSIST (बोलकर दर्ज करें)</h4>
+                <p>Tap to dictate symptoms directly in local rural dialect.</p>
+                <button class="btn btn-mic" onclick="simulateSpeech()"><i class="fa-solid fa-microphone"></i> Simulate Speech Mic</button>
+            </div>
+        </section>
+
+        <!-- Step 5: Care Coordination Mapping Display -->
+        <section id="step-results" class="card">
+            <div class="emergency-trigger">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Emergency Triage Result</h3>
+                <p>High Risk Cardiac Marker Detected. Immediate intervention recommended.</p>
+                <a href="tel:108" class="btn btn-emergency-call"><i class="fa-solid fa-phone"></i> CALL 108 AMBULANCE IMMEDIATELY</a>
+            </div>
+
+            <h3><i class="fa-solid fa-hospital"></i> Nearby Healthcare Support Facilities</h3>
+            <div id="facilities-container" class="facilities-list">
+                <!-- Rendered Dynamically via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
