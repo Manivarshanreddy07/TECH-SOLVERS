@@ -1,0 +1,10 @@
+care-sathi/
+├── backend/
+│   ├── server.js
+│   └── package.json
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+├── README.md
+└── package.json (Root file for deployment coordination)
